@@ -18,7 +18,7 @@ class StarWars extends StatelessWidget {
       routes: <String, WidgetBuilder>{
         "/": (BuildContext context) => PlanetsView(),
         "/people": (BuildContext context) => PeopleView(),
-        "/planet": (BuildContext context) => PlanetView(),
+        "/planet": (BuildContext context) => PlanetView(null),
       },
     );
   }

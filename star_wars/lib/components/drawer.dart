@@ -11,9 +11,7 @@ class AppDrawer extends Drawer {
             accountName: new Text('Darth Vader'),
             accountEmail: new Text('sdfsdf'),
             currentAccountPicture: new CircleAvatar(
-              backgroundImage: new NetworkImage(
-                  'https://cdn.tookapic.com/photos/2015/336/0/8/08819008d32e12f896973e98b7d8930a.jpg?h=300&q=85&sharp=3&s=f572b4516d84aa9aa27a975f714ac9e2'),
-            ),
+                backgroundImage: AssetImage('assets/profile.png')),
           ),
           new ListTile(
             title: new Text('About Page'),

@@ -1,17 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:star_wars/models/planet.dart';
+import 'package:star_wars/views/planet/index.dart';
 
 class PlanetListItem extends StatelessWidget {
-  final String _title;
+  final Planet _planet;
 
-  PlanetListItem(this._title);
+  PlanetListItem(this._planet);
 
   @override
   Widget build(BuildContext context) {
     return Card(
+      elevation: 0,
+      color: Colors.transparent,
       child: ListTile(
-        title: Text(_title),
+        title: Text(
+          _planet.name,
+          style: TextStyle(
+              color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20),
+        ),
         onTap: () {
-          Navigator.pushNamed(context, '/planet');
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => PlanetView(_planet),
+              ));
         },
       ),
     );
