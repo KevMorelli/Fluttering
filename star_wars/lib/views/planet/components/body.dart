@@ -81,8 +81,16 @@ class Body extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Text('Terrain'),
-                  Text(planetProvider.getPlanet().terrain)
+                  Padding(
+                    padding: const EdgeInsets.only(right: 25.0),
+                    child: Text('Terrain'),
+                  ),
+                  Flexible(
+                    child: Text(
+                      planetProvider.getPlanet().terrain,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  )
                 ],
               ),
             ),
@@ -111,7 +119,9 @@ class Body extends StatelessWidget {
                 height: 65.0,
                 width: 200.0,
                 child: RaisedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    planetProvider.destroyPlanet(context);
+                  },
                   child: Text(
                     'DESTROY',
                     style: TextStyle(fontSize: 18.0),

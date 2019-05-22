@@ -5,7 +5,9 @@ class LoadingIndicator extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: SizedBox(
-        child: CircularProgressIndicator(),
+        child: CircularProgressIndicator(
+          strokeWidth: 6.0,
+        ),
         height: 75.0,
         width: 75.0,
       ),

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:star_wars/components/loading_indicator.dart';
 import 'package:star_wars/providers/planets_provider.dart';
-import 'package:star_wars/views/planets/components/planet_list_item.dart';
 
 class Body extends StatelessWidget {
   @override
@@ -24,9 +23,23 @@ class Body extends StatelessWidget {
               image: AssetImage('assets/background.png'), fit: BoxFit.cover)),
       child: Center(
         child: ListView.separated(
-          itemCount: planetsProvider.getPlanets().length,
+          itemCount: planetsProvider.getTotal(),
           itemBuilder: (BuildContext context, int position) {
-            return PlanetListItem(planetsProvider.getPlanets()[position]);
+            return Card(
+              elevation: 0,
+              color: Colors.transparent,
+              child: ListTile(
+                title: Text(
+                  planetsProvider.getPlanet(position).name,
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20),
+                ),
+                onTap: () =>
+                    planetsProvider.navigateToPlanetInfo(position, context),
+              ),
+            );
           },
           separatorBuilder: (BuildContext context, int index) => Container(
                 color: Color(0xff2c2c2c),

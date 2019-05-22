@@ -7,4 +7,8 @@ class PlanetProvider with ChangeNotifier {
   PlanetProvider(this._planet);
 
   Planet getPlanet() => _planet;
+
+  destroyPlanet(BuildContext context) {
+    Navigator.pop(context, true);
+  }
 }
