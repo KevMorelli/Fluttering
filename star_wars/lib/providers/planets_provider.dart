@@ -7,8 +7,11 @@ import 'package:star_wars/views/planet/index.dart';
 
 class PlanetsProvider with ChangeNotifier {
   List<Planet> _planets;
+  bool isLoading = false;
 
   PlanetsProvider() {
+    _planets = List<Planet>();
+
     fetchData();
   }
 
@@ -21,7 +24,7 @@ class PlanetsProvider with ChangeNotifier {
   void removePlanet(int index) => _planets.removeAt(index);
 
   Future<void> fetchData() async {
-    _planets = null;
+    isLoading = true;
     notifyListeners();
 
     ApiService().fetchPlanets().then((result) {
@@ -29,6 +32,7 @@ class PlanetsProvider with ChangeNotifier {
       var data = Planets.fromJson(planets);
 
       _planets = data.planets;
+      isLoading = false;
 
       notifyListeners();
     });
