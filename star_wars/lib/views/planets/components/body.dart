@@ -22,29 +22,32 @@ class Body extends StatelessWidget {
           image: DecorationImage(
               image: AssetImage('assets/background.png'), fit: BoxFit.cover)),
       child: Center(
-        child: ListView.separated(
-          itemCount: planetsProvider.getTotal(),
-          itemBuilder: (BuildContext context, int position) {
-            return Card(
-              elevation: 0,
-              color: Colors.transparent,
-              child: ListTile(
-                title: Text(
-                  planetsProvider.getPlanet(position).name,
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20),
+        child: RefreshIndicator(
+          child: ListView.separated(
+            itemCount: planetsProvider.getTotal(),
+            itemBuilder: (BuildContext context, int position) {
+              return Card(
+                elevation: 0,
+                color: Colors.transparent,
+                child: ListTile(
+                  title: Text(
+                    planetsProvider.getPlanet(position).name,
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20),
+                  ),
+                  onTap: () =>
+                      planetsProvider.navigateToPlanetInfo(position, context),
                 ),
-                onTap: () =>
-                    planetsProvider.navigateToPlanetInfo(position, context),
-              ),
-            );
-          },
-          separatorBuilder: (BuildContext context, int index) => Container(
-                color: Color(0xff2c2c2c),
-                height: 3.0,
-              ),
+              );
+            },
+            separatorBuilder: (BuildContext context, int index) => Container(
+                  color: Color(0xff2c2c2c),
+                  height: 3.0,
+                ),
+          ),
+          onRefresh: () => planetsProvider.fetchData(),
         ),
       ),
     );

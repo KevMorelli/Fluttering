@@ -20,7 +20,10 @@ class PlanetsProvider with ChangeNotifier {
 
   void removePlanet(int index) => _planets.removeAt(index);
 
-  void fetchData() {
+  Future<void> fetchData() async {
+    _planets = null;
+    notifyListeners();
+
     ApiService().fetchPlanets().then((result) {
       Map<String, dynamic> planets = jsonDecode(result);
       var data = Planets.fromJson(planets);
@@ -39,6 +42,8 @@ class PlanetsProvider with ChangeNotifier {
         )).then((delete) {
       if (delete != null && delete) {
         removePlanet(index);
+
+        notifyListeners();
       }
     });
   }
