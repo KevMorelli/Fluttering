@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:provider/provider.dart';
 import 'package:star_wars/providers/planet_provider.dart';
+import 'package:animator/animator.dart';
 
 class Body extends StatelessWidget {
   @override
@@ -113,23 +114,30 @@ class Body extends StatelessWidget {
               color: Color(0xff2c2c2c),
               height: 3.0,
             ),
-            Padding(
-              padding: const EdgeInsets.all(25.0),
-              child: SizedBox(
-                height: 65.0,
-                width: 200.0,
-                child: RaisedButton(
-                  onPressed: () {
-                    planetProvider.destroyPlanet(context);
-                  },
-                  child: Text(
-                    'DESTROY',
-                    style: TextStyle(fontSize: 18.0),
+            Animator(
+              repeats: 0,
+              cycles: 0,
+              tween: Tween<double>(begin: -10, end: 10),
+              duration: Duration(milliseconds: 500),
+              curve: Curves.linear,
+              builder: (anim) => Padding(
+                    padding: const EdgeInsets.all(25.0),
+                    child: SizedBox(
+                      height: 65.0 + anim.value / 2,
+                      width: 200.0 + anim.value,
+                      child: RaisedButton(
+                        onPressed: () {
+                          planetProvider.destroyPlanet(context);
+                        },
+                        child: Text(
+                          'DESTROY',
+                          style: TextStyle(fontSize: 18.0),
+                        ),
+                        color: Color(0xffff0000),
+                        textColor: Colors.white,
+                      ),
+                    ),
                   ),
-                  color: Color(0xffff0000),
-                  textColor: Colors.white,
-                ),
-              ),
             ),
           ],
         ),
