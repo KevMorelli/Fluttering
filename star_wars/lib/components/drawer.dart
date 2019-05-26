@@ -18,9 +18,21 @@ class AppDrawer extends Drawer {
                     fit: BoxFit.cover)),
           ),
           ListTile(
-            title: new Text(
-              'Target: Planets',
-              style: TextStyle(color: Colors.grey, fontSize: 18),
+            title: Row(
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.only(right: 10.0),
+                  child: Image.asset(
+                    'assets/icons/planet.png',
+                    height: 50.0,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                Text(
+                  'Target: Planets',
+                  style: TextStyle(color: Colors.grey, fontSize: 18),
+                ),
+              ],
             ),
             onTap: () {
               Navigator.of(context).pop();
@@ -30,14 +42,29 @@ class AppDrawer extends Drawer {
                       builder: (BuildContext context) => PlanetsView()));
             },
           ),
-          Container(
-            color: Colors.grey,
-            height: 1.0,
+          Padding(
+            padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
+            child: Container(
+              color: Colors.grey,
+              height: 1.0,
+            ),
           ),
           ListTile(
-            title: new Text(
-              'Target: People',
-              style: TextStyle(color: Colors.grey, fontSize: 18),
+            title: Row(
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.only(right: 10.0),
+                  child: Image.asset(
+                    'assets/icons/people.png',
+                    height: 50.0,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                Text(
+                  'Target: People',
+                  style: TextStyle(color: Colors.grey, fontSize: 18),
+                ),
+              ],
             ),
             onTap: () {
               Navigator.of(context).pop();
@@ -47,9 +74,12 @@ class AppDrawer extends Drawer {
                       builder: (BuildContext context) => PlanetsView()));
             },
           ),
-          Container(
-            color: Colors.grey,
-            height: 1.0,
+          Padding(
+            padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
+            child: Container(
+              color: Colors.grey,
+              height: 1.0,
+            ),
           ),
         ],
       ),
