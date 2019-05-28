@@ -145,4 +145,3 @@ class Body extends StatelessWidget {
     );
   }
 }
-//planetProvider.getPlanet().population
