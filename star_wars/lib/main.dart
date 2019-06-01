@@ -20,6 +20,7 @@ class StarWars extends StatelessWidget {
         "/people": (BuildContext context) => PeopleView(),
         "/planet": (BuildContext context) => PlanetView(null),
       },
+      debugShowCheckedModeBanner: false,
     );
   }
 }

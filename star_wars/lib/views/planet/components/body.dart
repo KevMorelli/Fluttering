@@ -37,8 +37,15 @@ class Body extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Text('Climate'),
-                  Text(planetProvider.getPlanet().climate)
+                  Padding(
+                    padding: const EdgeInsets.only(right: 25.0),
+                    child: Text('Climate'),
+                  ),
+                  Flexible(
+                      child: Text(
+                    planetProvider.getPlanet().climate,
+                    overflow: TextOverflow.ellipsis,
+                  ))
                 ],
               ),
             ),
@@ -52,8 +59,15 @@ class Body extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Text('Diameter'),
-                  Text(planetProvider.getPlanet().diameter)
+                  Padding(
+                    padding: const EdgeInsets.only(right: 25.0),
+                    child: Text('Diameter'),
+                  ),
+                  Flexible(
+                      child: Text(
+                    planetProvider.getPlanet().diameter,
+                    overflow: TextOverflow.ellipsis,
+                  ))
                 ],
               ),
             ),
@@ -67,8 +81,16 @@ class Body extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Text('Gravity'),
-                  Text(planetProvider.getPlanet().gravity)
+                  Padding(
+                    padding: const EdgeInsets.only(right: 25.0),
+                    child: Text('Gravity'),
+                  ),
+                  Flexible(
+                    child: Text(
+                      planetProvider.getPlanet().gravity,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  )
                 ],
               ),
             ),
@@ -105,8 +127,16 @@ class Body extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Text('Population'),
-                  Text(planetProvider.getPlanet().population)
+                  Padding(
+                    padding: const EdgeInsets.only(right: 25.0),
+                    child: Text('Population'),
+                  ),
+                  Flexible(
+                    child: Text(
+                      planetProvider.getPlanet().population,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  )
                 ],
               ),
             ),
