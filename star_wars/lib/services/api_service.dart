@@ -9,4 +9,12 @@ class ApiService {
 
     return response.body;
   }
+
+  Future<String> fetchPeople() async {
+    http.Response response = await http.get(
+      Uri.encodeFull("https://swapi.co/api/people/?format=json"),
+    );
+
+    return response.body;
+  }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:star_wars/views/people/index.dart';
 import 'package:star_wars/views/planets/index.dart';
 
 class AppDrawer extends Drawer {
@@ -7,11 +8,11 @@ class AppDrawer extends Drawer {
     return Drawer(
       child: ListView(
         children: <Widget>[
-          new UserAccountsDrawerHeader(
-            accountName: new Text('Darth Vader'),
-            accountEmail: new Text(''),
-            currentAccountPicture: new CircleAvatar(
-                backgroundImage: AssetImage('assets/profile.png')),
+          UserAccountsDrawerHeader(
+            accountName: Text('Darth Vader'),
+            accountEmail: Text(''),
+            currentAccountPicture:
+                CircleAvatar(backgroundImage: AssetImage('assets/profile.png')),
             decoration: BoxDecoration(
                 image: DecorationImage(
                     image: AssetImage('assets/menu_header_background.png'),
@@ -38,7 +39,7 @@ class AppDrawer extends Drawer {
               Navigator.of(context).pop();
               Navigator.push(
                   context,
-                  new MaterialPageRoute(
+                  MaterialPageRoute(
                       builder: (BuildContext context) => PlanetsView()));
             },
           ),
@@ -70,8 +71,8 @@ class AppDrawer extends Drawer {
               Navigator.of(context).pop();
               Navigator.push(
                   context,
-                  new MaterialPageRoute(
-                      builder: (BuildContext context) => PlanetsView()));
+                  MaterialPageRoute(
+                      builder: (BuildContext context) => PeopleView()));
             },
           ),
           Padding(

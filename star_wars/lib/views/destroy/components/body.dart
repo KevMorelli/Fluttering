@@ -17,12 +17,10 @@ class _BodyState extends State<Body> with SingleTickerProviderStateMixin {
 
     destroyProvider.destroyPlanet(context, this);
 
-    return Center(
-      child: Lottie(
-        composition: destroyProvider.composition,
-        size: Size(destroyProvider.width, destroyProvider.height),
-        controller: destroyProvider.controller,
-      ),
+    return Lottie(
+      composition: destroyProvider.composition,
+      size: Size(destroyProvider.width, destroyProvider.height),
+      controller: destroyProvider.controller,
     );
   }
 }

@@ -34,7 +34,7 @@ class DestroyProvider with ChangeNotifier {
     loadAsset(_animation).then((LottieComposition comp) {
       composition = comp;
 
-      width = MediaQuery.of(context).size.width + comp.bounds.width / 2;
+      width = MediaQuery.of(context).size.width + 100;
       height = MediaQuery.of(context).size.height;
 
       notifyListeners();
