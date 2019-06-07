@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:io';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
 
@@ -50,8 +51,11 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _stopWatch() {
     if (timer != null) {
-      timer.cancel();
-      _index = 0;
+      setState(() {
+        timer.cancel();
+        _index = 0;
+        _currentWord = '';
+      });
     }
   }
 
@@ -62,6 +66,8 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void _createTimer() {
+    if (timer != null) timer.cancel();
+
     timer = Timer.periodic(Duration(milliseconds: _speedConverted.round()),
         (Timer timer) {
       setState(() {
@@ -85,7 +91,12 @@ class _MyHomePageState extends State<MyHomePage> {
       var file = File(filePath);
       var text = await file.readAsString();
 
-      _words = text.split(' ');
+      var wordsList = text.split(' ');
+
+      _words = List<String>();
+      for (var word in wordsList) {
+        _words.addAll(word.split('\n'));
+      }
 
       setState(() {
         _currentFile = filePath.split('/').last;
@@ -114,9 +125,17 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Text(
-                  _currentWord,
-                  style: TextStyle(fontSize: 48.0, fontWeight: FontWeight.bold),
+                Container(
+                  height: 50.0,
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 20.0, right: 20.0),
+                    child: AutoSizeText(
+                      _currentWord,
+                      style: TextStyle(
+                          fontSize: 48.0, fontWeight: FontWeight.bold),
+                      maxLines: 1,
+                    ),
+                  ),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(
