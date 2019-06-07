@@ -13,22 +13,6 @@ class Body extends StatelessWidget {
       child: Center(
         child: Column(
           children: <Widget>[
-            SliverAppBar(
-              expandedHeight: 200.0,
-              floating: false,
-              pinned: true,
-              flexibleSpace: FlexibleSpaceBar(
-                  centerTitle: true,
-                  title: Text("Collapsing Toolbar",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16.0,
-                      )),
-                  background: Image.network(
-                    "https://images.pexels.com/photos/396547/pexels-photo-396547.jpeg?auto=compress&cs=tinysrgb&h=350",
-                    fit: BoxFit.cover,
-                  )),
-            ),
             Container(
               constraints: new BoxConstraints.expand(
                 height: 280.0,
