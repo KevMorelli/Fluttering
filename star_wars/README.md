@@ -20,5 +20,3 @@ A small application where information is brought from an API and is represented 
 - Generate app icons with **flutter_launcher_icons**
 - Pull to refresh
 - Simple animations with **animator**
-
-<img src="https://github.com/KevMorelli/Fluttering/blob/master/GIFs/StarWars.gif" height="500" />
