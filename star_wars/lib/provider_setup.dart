@@ -18,7 +18,7 @@ List<SingleChildCloneableWidget> dependentServices = [
     builder: (context, api, planetsService) => PlanetsService(api: api),
   ),
   ProxyProvider<Api, PeopleService>(
-    builder: (context, api, peopleService) => PeopleService(api),
+    builder: (context, api, peopleService) => PeopleService(api: api),
   )
 ];
 

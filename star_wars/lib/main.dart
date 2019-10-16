@@ -3,7 +3,6 @@ import 'package:provider/provider.dart';
 import 'package:star_wars/core/constants/app_theme.dart';
 import 'package:star_wars/provider_setup.dart';
 import 'package:star_wars/ui/router.dart';
-
 import 'core/constants/app_constants.dart';
 
 void main() => runApp(App());

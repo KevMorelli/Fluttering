@@ -6,17 +6,12 @@ import 'package:star_wars/ui/widgets/loading_indicator.dart';
 
 import 'base_widget.dart';
 
-class PeopleView extends StatefulWidget {
-  @override
-  _PeopleViewState createState() => _PeopleViewState();
-}
-
-class _PeopleViewState extends State<PeopleView> {
+class PeopleView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BaseWidget<PeopleViewModel>(
         model: PeopleViewModel(peopleService: Provider.of(context)),
-        builder: (context, model, child) => Scaffold(
+        builder: (context, viewModel, child) => Scaffold(
               appBar: AppBar(
                 title: Text("People"),
               ),
@@ -30,21 +25,21 @@ class _PeopleViewState extends State<PeopleView> {
                     Center(
                       child: RefreshIndicator(
                         child: ListView.separated(
-                          itemCount: model.getTotal(),
+                          itemCount: viewModel.people.length,
                           itemBuilder: (BuildContext context, int position) {
                             return Card(
                               elevation: 0,
                               color: Colors.transparent,
                               child: ListTile(
                                 title: Text(
-                                  model.getPerson(position).name,
+                                  viewModel.people[position].name,
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontWeight: FontWeight.bold,
                                       fontSize: 20),
                                 ),
-                                // onTap: () => planetsProvider.navigateToPlanetInfo(
-                                //     position, context),
+                                onTap: () => viewModel.navigateToPersonInfo(
+                                    position, context),
                               ),
                             );
                           },
@@ -54,12 +49,12 @@ class _PeopleViewState extends State<PeopleView> {
                             height: 3.0,
                           ),
                         ),
-                        onRefresh: () => model.fetchData(),
+                        onRefresh: () => viewModel.fetchData(),
                       ),
                     ),
                     Visibility(
                       child: LoadingIndicator(),
-                      visible: model.busy,
+                      visible: viewModel.busy,
                     ),
                   ])),
             ));
