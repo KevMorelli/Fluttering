@@ -1,9 +1,11 @@
 import 'package:animator/animator.dart';
 import 'package:flutter/material.dart';
+import 'package:star_wars/core/constants/app_assets.dart';
 import 'package:star_wars/core/models/planet.dart';
 import 'package:star_wars/core/viewmodels/planet_viewmodel.dart';
 import 'package:star_wars/ui/shared/app_colors.dart';
 import 'package:star_wars/ui/views/base_widget.dart';
+import 'package:star_wars/ui/widgets/field_separator.dart';
 
 class PlanetView extends StatelessWidget {
   final Planet planet;
@@ -30,7 +32,7 @@ class PlanetView extends StatelessWidget {
                   padding: new EdgeInsets.only(left: 16.0, bottom: 8.0),
                   decoration: new BoxDecoration(
                     image: new DecorationImage(
-                      image: new AssetImage('assets/planet_header.png'),
+                      image: new AssetImage(Assets.PlanetHeaderImage),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -38,7 +40,7 @@ class PlanetView extends StatelessWidget {
                       style: new TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 36.0,
-                          color: Color(0xffff0000))),
+                          color: Colors.red)),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(
@@ -58,10 +60,7 @@ class PlanetView extends StatelessWidget {
                     ],
                   ),
                 ),
-                Container(
-                  color: Color(0xff2c2c2c),
-                  height: 3.0,
-                ),
+                FieldSeparator(),
                 Padding(
                   padding: const EdgeInsets.only(
                       left: 25.0, top: 20.0, bottom: 20.0, right: 25.0),
@@ -80,10 +79,7 @@ class PlanetView extends StatelessWidget {
                     ],
                   ),
                 ),
-                Container(
-                  color: Color(0xff2c2c2c),
-                  height: 3.0,
-                ),
+                FieldSeparator(),
                 Padding(
                   padding: const EdgeInsets.only(
                       left: 25.0, top: 20.0, bottom: 20.0, right: 25.0),
@@ -103,10 +99,7 @@ class PlanetView extends StatelessWidget {
                     ],
                   ),
                 ),
-                Container(
-                  color: Color(0xff2c2c2c),
-                  height: 3.0,
-                ),
+                FieldSeparator(),
                 Padding(
                   padding: const EdgeInsets.only(
                       left: 25.0, top: 20.0, bottom: 20.0, right: 25.0),
@@ -126,10 +119,7 @@ class PlanetView extends StatelessWidget {
                     ],
                   ),
                 ),
-                Container(
-                  color: Color(0xff2c2c2c),
-                  height: 3.0,
-                ),
+                FieldSeparator(),
                 Padding(
                   padding: const EdgeInsets.only(
                       left: 25.0, top: 20.0, bottom: 20.0, right: 25.0),
@@ -149,10 +139,7 @@ class PlanetView extends StatelessWidget {
                     ],
                   ),
                 ),
-                Container(
-                  color: Color(0xff2c2c2c),
-                  height: 3.0,
-                ),
+                FieldSeparator(),
                 Animator(
                   repeats: 0,
                   cycles: 0,
@@ -172,7 +159,7 @@ class PlanetView extends StatelessWidget {
                           'DESTROY',
                           style: TextStyle(fontSize: 18.0),
                         ),
-                        color: Color(0xffff0000),
+                        color: Colors.red,
                         textColor: Colors.white,
                       ),
                     ),

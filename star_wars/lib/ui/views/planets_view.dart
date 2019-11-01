@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:star_wars/core/constants/app_assets.dart';
 import 'package:star_wars/core/viewmodels/planets_viewmodel.dart';
+import 'package:star_wars/ui/shared/text_styles.dart';
 import 'package:star_wars/ui/views/base_widget.dart';
 import 'package:star_wars/ui/widgets/drawer.dart';
+import 'package:star_wars/ui/widgets/field_separator.dart';
 import 'package:star_wars/ui/widgets/loading_indicator.dart';
 
 class PlanetsView extends StatelessWidget {
@@ -18,7 +21,7 @@ class PlanetsView extends StatelessWidget {
         body: Container(
           decoration: BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage('assets/background.png'),
+                  image: AssetImage(Assets.BackgroundImage),
                   fit: BoxFit.cover)),
           child: Stack(
             children: <Widget>[
@@ -31,23 +34,15 @@ class PlanetsView extends StatelessWidget {
                         elevation: 0,
                         color: Colors.transparent,
                         child: ListTile(
-                          title: Text(
-                            viewModel.planets[position].name,
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 20),
-                          ),
+                          title: Text(viewModel.planets[position].name,
+                              style: itemListStyle),
                           onTap: () =>
                               viewModel.navigateToPlanetInfo(position, context),
                         ),
                       );
                     },
                     separatorBuilder: (BuildContext context, int index) =>
-                        Container(
-                      color: Color(0xff2c2c2c),
-                      height: 3.0,
-                    ),
+                        FieldSeparator(),
                   ),
                   onRefresh: () => viewModel.fetchData(),
                 ),
