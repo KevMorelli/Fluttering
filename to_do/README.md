@@ -8,4 +8,4 @@ A small application to show how fast and simple a Flutter application can be bui
 - States
 - TextEditingController and AlertDialog
 
-<img src="https://github.com/KevMorelli/Fluttering/blob/master/_screenshots/to_do/01.jpg?raw=true" height="500" /><img src="https://github.com/KevMorelli/Fluttering/blob/master/_screenshots/to_do/02.jpg?raw=true" height="500" />
+<img src="https://raw.githubusercontent.com/KevMorelli/Fluttering/master/_screenshots/to_do/01.png" height="500" /> <img src="https://raw.githubusercontent.com/KevMorelli/Fluttering/master/_screenshots/to_do/02.png" height="500" />
