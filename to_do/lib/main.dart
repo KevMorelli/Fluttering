@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: MyHomePage(title: 'To Do App'),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
